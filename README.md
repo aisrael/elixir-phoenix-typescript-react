@@ -11,7 +11,7 @@ Let's jump right in.
 
 ### Prerequisites
 
-This guide assumes you already have the following setup:
+This guide assumes you already have the following set up:
 
 * **Elixir** (1.9.4 or better)
 * **npm** (@6.11.3 as of this writing)
@@ -191,7 +191,7 @@ First, make sure we're back in `apps/hello_react_web/assets/`:
 
 ```
 $ cd apps/hello_react_web/assets/
-~/hello_react_umbrella/apps/hello_react_web/assets$ 
+~/hello_react_umbrella/apps/hello_react_web/assets$
 ```
 
 Add the Typescript libraries using:
@@ -220,7 +220,7 @@ We need to change a few things from the Typescript defaults. Here's a minimal `t
     "jsx": "react",                           /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
     "outDir": "./dist/",                      /* Redirect output structure to the directory. */
     "strict": true,                           /* Enable all strict type-checking options. */
-    "esModuleInterop": true,                  /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */   
+    "esModuleInterop": true,                  /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
     "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
   },
   "exclude": [
@@ -236,7 +236,7 @@ Next, we'll need to tell Webpack to recognise `.ts` files along with `.js` files
 Open `apps/hello_react_web/assets/webpack.config.js` and change the first module rule to:
 
 ```
- rules: [
+    rules: [
       {
         test: /\.(j|t)s$/,
         exclude: /node_modules/,
