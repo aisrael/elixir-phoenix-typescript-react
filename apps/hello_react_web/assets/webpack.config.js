@@ -22,7 +22,7 @@ module.exports = (env, options) => ({
   module: {
     rules: [
       {
-        test: /\.(j|t)s$/,
+        test: /\.(j|t)sx?$/,
         exclude: /node_modules/,
         use: [
           {
@@ -39,8 +39,10 @@ module.exports = (env, options) => ({
       }
     ]
   },
+  // Enable sourcemaps for debugging webpack's output.
+  devtool: "source-map",
   resolve: {
-    extensions: [".ts", ".js"]
+    extensions: [".ts", ".tsx", ".js", ".jsx"]
   },
   plugins: [
     new MiniCssExtractPlugin({ filename: "../css/app.css" }),
