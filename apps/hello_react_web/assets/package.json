@@ -6,10 +6,12 @@
     "watch": "webpack --mode development --watch"
   },
   "dependencies": {
+    "add": "^2.0.6",
     "phoenix": "file:../../../deps/phoenix",
     "phoenix_html": "file:../../../deps/phoenix_html",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "semantic-ui-react": "^0.88.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
