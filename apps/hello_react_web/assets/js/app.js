@@ -19,7 +19,7 @@ import "phoenix_html";
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Greeter from "./hello";
+import AppRoot from "./app_root";
 
-const greeting = document.getElementById("greeting");
-ReactDOM.render(<Greeter name="Phoenix" />, greeting);
+const app_root = document.getElementById("app_root");
+ReactDOM.render(<AppRoot />, app_root);
