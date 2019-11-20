@@ -259,6 +259,20 @@ Additionally, add an outermost `"resolve"` key after `"module"` as follows:
   },
 ```
 
+#### `app.js`
+
+When we generated our Phoenix app, it created `apps/hello_react_web/assets/js/app.js` with an `import css from "../css/app.css";` line.
+
+This causes problems when that file is parsed by Typescript. You can see a lengthy discussion and several workarounds for this at [this Stackoverflow question](https://stackoverflow.com/questions/41336858/how-to-import-css-modules-with-typescript-react-and-webpack) and on this [page](https://medium.com/@sapegin/css-modules-with-typescript-and-webpack-6b221ebe5f10).
+
+The simplest (though not the best) way to fix this before proceeding (so Webpack will continue to process our `app.css`) is to change that line to use `require`:
+
+```
+const _css = require("../css/app.css");
+```
+
+Since we don't actually use the variable (we only need it so Webpack can generate our `app.css` file properly), we prepend its name with an underscore to suppress the "unused variable" warning that Typescript would otherwise emit.
+
 #### Welcome to Phoenix with Typescript!
 
 To demonstrate Typescript in action, we'll create a new Typescript module `apps/hello_react_web/assets/js/hello.ts`:
