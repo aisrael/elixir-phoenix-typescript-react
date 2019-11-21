@@ -2,6 +2,7 @@
 // The MiniCssExtractPlugin is used to separate it out into
 // its own CSS file.
 const _css = require("../css/app.css");
+import "semantic-ui-less/semantic.less";
 
 // webpack automatically bundles all modules in your
 // entry points. Those entry points can be configured
