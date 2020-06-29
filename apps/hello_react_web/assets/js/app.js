@@ -13,3 +13,7 @@ import "../css/app.scss"
 //     import socket from "./socket"
 //
 import "phoenix_html"
+
+import greet from "./hello";
+
+document.querySelector("section.phx-hero h1").innerHTML = greet("Phoenix");
