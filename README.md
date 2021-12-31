@@ -88,8 +88,8 @@ This will generate an Elixir + Phoenix [umbrella app](https://elixir-lang.org/ge
 ```
 .
 ├── apps
-│   ├── hello
-│   └── hello_web
+│   ├── hello
+│   └── hello_web
 └── config
 ```
 
@@ -236,7 +236,7 @@ npm install --save-dev @types/react @types/react-dom
 
 ### Our First Component
 
-Let's rename `greeter.ts` to `greeter.tsx` (similar to how you would rename a regular `.js` file to `.jsx`).
+Let's rename `greeter.ts` to `greeter.tsx` (similar to how you would rename a regular `.js` file to `.jsx`).
 
 Then, replace the contents of `greeter.tsx` with a `Greeter` React component:
 
@@ -259,7 +259,7 @@ const Greeter: React.FC<GreeterProps> = (props: GreeterProps) => {
 export default Greeter;
 ```
 
-### Welcome to Phoenix with TypeScript and React
+### Welcome to Phoenix with TypeScript and React
 
 Next, edit the file apps/hello_web/lib/hello_wieb/templates/page/index.html.heex and replace the entire section that goes:
 
@@ -288,7 +288,7 @@ const greeting = document.getElementById("greeting");
 ReactDOM.render(<Greeter name="Phoenix" />, greeting);
 ```
 
-(We need to rename it from `.js` to `.jsx` to avoid a syntax error in the last line.)
+(We need to rename it from `.js` to `.jsx` to avoid a syntax error in the last line.)
 
 Finally, we'll need to edit `config/config.exs` to tell esbuild to look for `app.jsx` instead of `app.js`. Look for the section starting with `# Configure esbuild` and replace the line that goes
 
