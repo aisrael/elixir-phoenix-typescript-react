@@ -43,6 +43,10 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
-import greet from "./greeter";
+import React from "react";
+import ReactDOM from "react-dom";
 
-document.querySelector("section.phx-hero h1").innerHTML = greet("Phoenix");
+import Greeter from "./greeter";
+
+const greeting = document.getElementById("greeting");
+ReactDOM.render(<Greeter name="Phoenix" />, greeting);
