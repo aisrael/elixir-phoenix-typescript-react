@@ -11,7 +11,7 @@ TypeScript & React with Phoenix 1.6
 
 The release of [Phoenix 1.6](https://www.phoenixframework.org/blog/phoenix-1.6-released) brings with it a couple of notable improvements, such as HEEx templating. To me, though, the most remarkable thing that improves developer experience was dropping webpack and node in favor of [esbuild](https://github.com/evanw/esbuild).
 
-Not only does esbuild promise faster build times, _it supports TypeScript and .jsx/.tsx out of the box!_
+Not only does esbuild promise faster build times, it supports TypeScript _out of the box_, and adding React isn't that much harder!
 
 The entire process has become so streamlined that in this article we can skip entire sections from its predecessors!
 
