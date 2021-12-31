@@ -43,3 +43,6 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
+import greet from "./greeter";
+
+document.querySelector("section.phx-hero h1").innerHTML = greet("Phoenix");
