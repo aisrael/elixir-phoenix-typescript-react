@@ -1,4 +1,4 @@
-TypeScript & React with Phoenix 1.6
+Phoenix 1.6 with TypeScript & React
 ===
 
 **Elixir, Phoenix, TypeScript, and React – the 2022 Edition**
