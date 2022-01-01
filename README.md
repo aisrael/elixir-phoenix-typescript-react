@@ -5,7 +5,7 @@ TypeScript & React with Phoenix 1.6
 
 > This is the 2022 update to my earlier [article](https://medium.com/@alistairisrael/elixir-phoenix-typescript-and-react-2020-edition-32ceb753705). The source code to that still lives in this repository under the (detached) [`2020`](https://github.com/aisrael/elixir-phoenix-typescript-react/tree/2020) branch.
 >
-> This is the accompanying source code to my article [TypeScript & React with Phoenix 1.6]() on Medium.com.
+> This is the accompanying source code to my article [TypeScript & React with Phoenix 1.6](https://medium.com/@alistairisrael/phoenix-1-6-with-typescript-react-bea7f3a792d5) on Medium.com.
 
 ---
 
