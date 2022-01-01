@@ -187,9 +187,7 @@ Now if we visit [http://localhost:4000](http://localhost:4000) we should be able
 
 ## Typescript in Phoenix 1.6
 
-The best thing about Phoenix 1.6 is that it ditched `webpack` in favor of [`esbuild`](https://github.com/evanw/esbuild) .
-
-Not only does this promise shorter build times, `esbuild` _supports Typescript out of the box!_—no further tooling or configuration needed!
+Since Phoenix 1.6 replaced `webpack` with [`esbuild`](https://github.com/evanw/esbuild), it now _supports Typescript out of the box!_ — no further tooling or configuration needed!
 
 ### Welcome to Phoenix with Typescript!
 
