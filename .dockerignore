@@ -1,7 +1,11 @@
 .dockerignore
+Dockcerfile
+
 # there are valid reasons to keep the .git, namely so that you can get the
 # current commit hash
-#.git
+.git/
+.gitignore
+
 .log
 tmp
 
