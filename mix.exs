@@ -7,7 +7,8 @@ defmodule Hello.Umbrella.MixProject do
       version: "0.1.0",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      aliases: aliases()
+      aliases: aliases(),
+      releases: releases()
     ]
   end
 
@@ -40,6 +41,18 @@ defmodule Hello.Umbrella.MixProject do
     [
       # run `mix setup` in all child apps
       setup: ["cmd mix setup"]
+    ]
+  end
+
+  # Umbrella projects require releases to be explicitly defined with a non-empty applications key that chooses which umbrella children should be part of the releases
+  defp releases do
+    [
+      hello_umbrella: [
+        applications: [
+          hello: :permanent,
+          hello_web: :permanent
+        ]
+      ]
     ]
   end
 end
