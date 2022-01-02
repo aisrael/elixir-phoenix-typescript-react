@@ -18,21 +18,26 @@ ARG RUNNER_IMAGE="debian:bullseye-20210902-slim"
 FROM ${BUILDER_IMAGE} as builder
 
 # install build dependencies
-RUN apt-get update -y && apt-get install -y build-essential git \
-    && apt-get clean && rm -f /var/lib/apt/lists/*_*
+RUN apt-get update -y && apt-get install -y build-essential git npm \
+  && apt-get clean && rm -f /var/lib/apt/lists/*_*
 
 # prepare build dir
 WORKDIR /app
 
 # install hex + rebar
 RUN mix local.hex --force && \
-    mix local.rebar --force
+  mix local.rebar --force
 
 # set build ENV
 ENV MIX_ENV="prod"
 
 # install mix dependencies
 COPY mix.exs mix.lock ./
+
+# copy apps/**/mix.exs
+COPY apps/hello/mix.exs ./apps/hello/mix.exs
+COPY apps/hello_web/mix.exs ./apps/hello_web/mix.exs
+
 RUN mix deps.get --only $MIX_ENV
 RUN mkdir config
 
@@ -42,19 +47,19 @@ RUN mkdir config
 COPY config/config.exs config/${MIX_ENV}.exs config/
 RUN mix deps.compile
 
-COPY priv priv
+COPY apps/hello_web/priv apps/hello_web/priv
 
 # note: if your project uses a tool like https://purgecss.com/,
 # which customizes asset compilation based on what it finds in
 # your Elixir templates, you will need to move the asset compilation
 # step down so that `lib` is available.
-COPY assets assets
+COPY apps/hello_web/assets apps/hello_web/assets
 
 # compile assets
-RUN mix assets.deploy
+RUN cd apps/hello_web && mix assets.deploy
 
 # Compile the release
-COPY lib lib
+COPY apps apps
 
 RUN mix compile
 
@@ -82,8 +87,8 @@ WORKDIR "/app"
 RUN chown nobody /app
 
 # Only copy the final release from the build stage
-COPY --from=builder --chown=nobody:root /app/_build/prod/rel/hello_web ./
+COPY --from=builder --chown=nobody:root /app/_build/prod/rel/hello_umbrella ./
 
 USER nobody
 
-CMD /app/bin/server
+ENTRYPOINT [ "/app/bin/hello_umbrella" ]
