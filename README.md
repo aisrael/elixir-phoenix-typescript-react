@@ -259,7 +259,7 @@ export default Greeter;
 
 ### Welcome to Phoenix with TypeScript and React
 
-Next, edit the file apps/hello_web/lib/hello_wieb/templates/page/index.html.heex and replace the entire section that goes:
+Next, edit the file `apps/hello_web/lib/hello_web/templates/page/index.html.heex` and replace the entire section that goes:
 
 ```
 <section class="phx-hero">
