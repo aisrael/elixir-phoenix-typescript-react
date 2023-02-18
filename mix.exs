@@ -1,4 +1,4 @@
-defmodule waitlist.Umbrella.MixProject do
+defmodule Waitlist.Umbrella.MixProject do
   use Mix.Project
 
   def project do
