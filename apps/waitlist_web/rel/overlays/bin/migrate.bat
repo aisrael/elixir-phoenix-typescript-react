@@ -1,0 +1,1 @@
+call "%~dp0\waitlist_web" eval WaitlistWeb.Release.migrate

@@ -35,8 +35,8 @@ ENV MIX_ENV="prod"
 COPY mix.exs mix.lock ./
 
 # copy apps/**/mix.exs
-COPY apps/hello/mix.exs ./apps/hello/mix.exs
-COPY apps/hello_web/mix.exs ./apps/hello_web/mix.exs
+COPY apps/waitlist/mix.exs ./apps/waitlist/mix.exs
+COPY apps/waitlist_web/mix.exs ./apps/waitlist_web/mix.exs
 
 RUN mix deps.get --only $MIX_ENV
 RUN mkdir config
@@ -47,16 +47,16 @@ RUN mkdir config
 COPY config/config.exs config/${MIX_ENV}.exs config/
 RUN mix deps.compile
 
-COPY apps/hello_web/priv apps/hello_web/priv
+COPY apps/waitlist_web/priv apps/waitlist_web/priv
 
 # note: if your project uses a tool like https://purgecss.com/,
 # which customizes asset compilation based on what it finds in
 # your Elixir templates, you will need to move the asset compilation
 # step down so that `lib` is available.
-COPY apps/hello_web/assets apps/hello_web/assets
+COPY apps/waitlist_web/assets apps/waitlist_web/assets
 
 # compile assets
-RUN cd apps/hello_web && mix assets.deploy
+RUN cd apps/waitlist_web && mix assets.deploy
 
 # Compile the release
 COPY apps apps
@@ -87,8 +87,8 @@ WORKDIR "/app"
 RUN chown nobody /app
 
 # Only copy the final release from the build stage
-COPY --from=builder --chown=nobody:root /app/_build/prod/rel/hello_umbrella ./
+COPY --from=builder --chown=nobody:root /app/_build/prod/rel/waitlist_umbrella ./
 
 USER nobody
 
-ENTRYPOINT [ "/app/bin/hello_umbrella" ]
+ENTRYPOINT [ "/app/bin/waitlist_umbrella" ]

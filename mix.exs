@@ -1,4 +1,4 @@
-defmodule Hello.Umbrella.MixProject do
+defmodule waitlist.Umbrella.MixProject do
   use Mix.Project
 
   def project do
@@ -47,10 +47,10 @@ defmodule Hello.Umbrella.MixProject do
   # Umbrella projects require releases to be explicitly defined with a non-empty applications key that chooses which umbrella children should be part of the releases
   defp releases do
     [
-      hello_umbrella: [
+      waitlist_umbrella: [
         applications: [
-          hello: :permanent,
-          hello_web: :permanent
+          waitlist: :permanent,
+          waitlist_web: :permanent
         ]
       ]
     ]

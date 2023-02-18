@@ -80,21 +80,21 @@ Phoenix installer v1.6.5
 ### Generate the Phoenix app
 
 ```
-$ mix phx.new hello --umbrella
+$ mix phx.new waitlist --umbrella
 ```
 
-This will generate an Elixir + Phoenix [umbrella app](https://elixir-lang.org/getting-started/mix-otp/dependencies-and-umbrella-projects.html) named `hello_umbrella` in the current directory with the following directory structure:
+This will generate an Elixir + Phoenix [umbrella app](https://elixir-lang.org/getting-started/mix-otp/dependencies-and-umbrella-projects.html) named `waitlist_umbrella` in the current directory with the following directory structure:
 
 ```
 .
 ├── apps
-│   ├── hello
-│   └── hello_web
+│   ├── waitlist
+│   └── waitlist_web
 └── config
 ```
 
 
-The two Elixir apps are `/apps/hello` and `apps/hello_web`.
+The two Elixir apps are `/apps/waitlist` and `apps/waitlist_web`.
 
 Each app will its own dependency configuration, though the entire umbrella project will have a shared dependency library (in `/deps`) for all apps.
 
@@ -110,13 +110,13 @@ Phoenix by default uses Postgres for its database.
 If you want to use MySQL rather than Postgres, then you'll need to generate your Phoenix app using
 
 ```
-mix phx.new hello_react --umbrella --database mysql
+mix phx.new waitlist_react --umbrella --database mysql
 ```
 
 If you won't be needing a database or only wish to follow along without one, then create your Phoenix app using
 
 ```
-mix phx.new hello_react --umbrella --no-ecto
+mix phx.new waitlist_react --umbrella --no-ecto
 ```
 
 The rest of this guide, however, assumes the default which is Postgres.
@@ -127,15 +127,15 @@ The rest of this guide, however, assumes the default which is Postgres.
 At this point, we should start using Git to track our changes. If you don't need to use Git, feel free to skip to the next section.
 
 ```
-$ cd hello_umbrella
-~/hello_umbrella $
+$ cd waitlist_umbrella
+~/waitlist_umbrella $
 ```
 
 ```
 $ git init
-Initialized empty Git repository in /Users/aisrael/hello_react_umbrella/.git/
+Initialized empty Git repository in /Users/aisrael/waitlist_react_umbrella/.git/
 $ git add -A
-$ git commit -m "mix phx.new hello --umbrella"
+$ git commit -m "mix phx.new waitlist --umbrella"
 ```
 
 ### Docker Compose
@@ -154,7 +154,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: hello_dev
+      POSTGRES_DB: waitlist_dev
 ```
 
 Note that we configure PostgreSQL (using the `POSTGRES_*` environment variables) to work with the generated Phoenix app defaults.
@@ -178,7 +178,7 @@ If you can't or don't want to use Docker & Docker Compose, you'll have to instal
 At this point we should be able to run our Phoenix application. From the project root (you may wish to run this in a new terminal window or tab), just go:
 
 ```
-~/hello_umbrella$ mix phx.server
+~/waitlist_umbrella$ mix phx.server
 ```
 
 (If you get a prompt asking if you want to install `rebar3`, just go ahead and say yes.)
@@ -191,7 +191,7 @@ Since Phoenix 1.6 replaced `webpack` with [`esbuild`](https://github.com/evanw/e
 
 ### Welcome to Phoenix with Typescript!
 
-To demonstrate Typescript in action, let's create a new Typescript module `apps/hello_web/assets/js/greeter.ts`:
+To demonstrate Typescript in action, let's create a new Typescript module `apps/waitlist_web/assets/js/greeter.ts`:
 
 ```
 function greet(name: string): string {
@@ -219,10 +219,10 @@ That's it! No need for `npm` or fiddling with `tsconfig.json` and `webpack.confi
 
 Now we can add React into the mix. For this, we'll now need `npm` to fetch and install the necessary packages.
 
-First, make sure we're in the `apps/hello_web/assets` directory:
+First, make sure we're in the `apps/waitlist_web/assets` directory:
 
 ```
-~/hello_umbrella$ cd apps/hello_web/assets
+~/waitlist_umbrella$ cd apps/waitlist_web/assets
 ```
 
 From there, we'll issue:
@@ -259,7 +259,7 @@ export default Greeter;
 
 ### Welcome to Phoenix with TypeScript and React
 
-Next, edit the file `apps/hello_web/lib/hello_web/templates/page/index.html.heex` and replace the entire section that goes:
+Next, edit the file `apps/waitlist_web/lib/waitlist_web/templates/page/index.html.heex` and replace the entire section that goes:
 
 ```
 <section class="phx-hero">
@@ -274,7 +274,7 @@ With just
 <div id="greeting"/>
 ```
 
-Now, we'll need to rename `apps/hello_web/assets/js/app.js` to `app.jsx`, and replace the last two lines we added earlier with:
+Now, we'll need to rename `apps/waitlist_web/assets/js/app.js` to `app.jsx`, and replace the last two lines we added earlier with:
 
 ```
 import React from "react";
